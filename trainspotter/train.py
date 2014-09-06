@@ -1,3 +1,5 @@
+from trainspotter import utils
+
 class Train:
     def __init__(self,train,ckv):
         self.name = train[0]
