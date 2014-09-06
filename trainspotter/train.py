@@ -27,4 +27,4 @@ class Train:
         return "<Train Object> %s" % self.name
 
     def __str__(self):
-        return self.name
+        return "%s - %s - %s - %s" % (self.name, self.x, self.y, self.delay)
