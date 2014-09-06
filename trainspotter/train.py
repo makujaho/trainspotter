@@ -14,7 +14,7 @@ class Train:
         self.pstopno = train[10]
         self.nstopname = train[11]
         self.nstopno = train[12]
-        self.dateRef = date[13]
+        self.dateRef = train[13]
         self.pstopdeparture = train[17];                                             
         self.nstoparrival = train[16];                                               
         self.ageofreport = train[14];                                                
