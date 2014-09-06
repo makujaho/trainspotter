@@ -22,3 +22,9 @@ class Train:
         self.zpathflags = train[20];                                                 
         self.additionaltype = train[21];                                             
         self.hideMoments = train[22];
+
+    def __repr__(self):
+        return "<Train Objekt> %s" % self.name
+
+    def __str__(self):
+        return self.name
