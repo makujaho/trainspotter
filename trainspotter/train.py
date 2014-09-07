@@ -24,7 +24,7 @@ class Train:
         self.hideMoments = train[22];
 
     def __repr__(self):
-        return "<Train Object> %s" % self.name
+        return "<Train Object %s - '%s'>" % (self.id,self.name)
 
     def __str__(self):
-        return "%s - %s,%s - %s" % (self.name, self.y/10**6, self.x/10**6, self.delay)
+        return "%s - %s - %s,%s - %s" % (self.id, self.name, self.y/10**6, self.x/10**6, self.delay)
