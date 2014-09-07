@@ -17,13 +17,13 @@ class Train:
         self.nstopname = train[11]
         self.nstopno = train[12]
         self.dateRef = train[13]
-        self.pstopdeparture = train[17];                                             
-        self.nstoparrival = train[16];                                               
-        self.ageofreport = train[14];                                                
-        self.lastreporting = train[15];                                              
-        self.zpathflags = train[20];                                                 
-        self.additionaltype = train[21];                                             
-        self.hideMoments = train[22];
+        self.pstopdeparture = train[17]
+        self.nstoparrival = train[16]
+        self.ageofreport = train[14]
+        self.lastreporting = train[15]
+        self.zpathflags = train[20]
+        self.additionaltype = train[21]
+        self.hideMoments = train[22]
 
     def __repr__(self):
         return "<Train Object %s - '%s'>" % (self.id,self.name)
