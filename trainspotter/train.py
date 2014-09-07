@@ -5,6 +5,8 @@ class Train:
         self.name = train[0]
         self.x = utils.sign(train[1],ckv)
         self.y = utils.sign(train[2],ckv)
+        self.x_enc = train[1]
+        self.y_enc = train[2]
         self.id = train[3]
         self.direction = train[4]
         self.productclass = train[5]
