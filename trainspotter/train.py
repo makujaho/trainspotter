@@ -12,7 +12,7 @@ class Train:
         self.productclass = train[5]
         self.delay = train[6]
         self.lstopname = train[7]
-        self.pstopno = train[9]
+        self.pstopname = train[9]
         self.pstopno = train[10]
         self.nstopname = train[11]
         self.nstopno = train[12]
