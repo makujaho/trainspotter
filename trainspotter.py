@@ -27,7 +27,7 @@ def getTrains():
                 if 'error' in a:
                     time.sleep(5)
                 pass
-        time.sleep(3)
+        time.sleep(1)
 
     else:
         return trains
