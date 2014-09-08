@@ -24,7 +24,7 @@ def getTrains():
                 else:
                     break
             except Exception as e:
-		print("WARNING: Error while loading JSON - ", a, file=sys.stderr)
+                print("WARNING: Error while loading JSON - ", e, file=sys.stderr)
                 if 'error' in a:
                     time.sleep(5)
                 pass
