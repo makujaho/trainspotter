@@ -14,9 +14,10 @@ def getTrains():
         strDate = datetime.now().strftime('%Y%m%d')
 
         while True:
-            r = requests.get('http://www.apps-bahn.de/bin/livemap/query-livemap.exe/dny?L=vs_livefahrplan&performLocating=1&performFixedLocating='+str(i)+'&look_requesttime='+strTime+'&livemapRequest=no&ts='+strDate)
-            a = json.loads(r.text)
             try:
+                r = requests.get('http://www.apps-bahn.de/bin/livemap/query-livemap.exe/dny?L=vs_livefahrplan&performLocating=1&performFixedLocating='+str(i)+'&look_requesttime='+strTime+'&livemapRequest=no&ts='+strDate)
+                a = json.loads(r.text)
+
                 for i in a[0][:-1]:
                     p = train.Train(i, utils.calcCKV(a[0][-1][5], len(a[0])-1))
                     trains[p.id] = p
