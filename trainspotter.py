@@ -19,7 +19,6 @@ def getTrains():
             try:
                 for i in a[0][:-1]:
                     p = train.Train(i, utils.calcCKV(a[0][-1][5], len(a[0])-1))
-                    print(p)
                     trains[p.id] = p
                 else:
                     break
@@ -35,5 +34,5 @@ def getTrains():
 
 t = getTrains()
 
-#for i in t:
-#    print(i)
+for i in t.values():
+    print(i)
