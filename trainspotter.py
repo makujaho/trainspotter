@@ -1,6 +1,8 @@
 import json
 import requests
 import time
+import json
+import sys
 from trainspotter   import utils
 from trainspotter   import train
 from datetime       import datetime
@@ -13,7 +15,7 @@ def getTrains():
 
         while True:
             r = requests.get('http://www.apps-bahn.de/bin/livemap/query-livemap.exe/dny?L=vs_livefahrplan&performLocating=1&performFixedLocating='+str(i)+'&look_requesttime='+strTime+'&livemapRequest=no&ts='+strDate)
-            a = r.json()
+            a = json.loads(r.text)
             try:
                 for i in a[0][:-1]:
                     p = train.Train(i, utils.calcCKV(a[0][-1][5], len(a[0])-1))
