@@ -10,11 +10,11 @@ from datetime       import datetime
 def getTrains():
     trains = {}
     for i in range(1,24):
-        strTime = datetime.now().strftime('%H:%M:%S')
-        strDate = datetime.now().strftime('%Y%m%d')
-
         while True:
             try:
+                strTime = datetime.now().strftime('%H:%M:%S')
+                strDate = datetime.now().strftime('%Y%m%d')
+
                 r = requests.get('http://www.apps-bahn.de/bin/livemap/query-livemap.exe/dny?L=vs_livefahrplan&performLocating=1&performFixedLocating='+str(i)+'&look_requesttime='+strTime+'&livemapRequest=no&ts='+strDate)
                 a = json.loads(r.text)
 
