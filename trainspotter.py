@@ -19,7 +19,9 @@ def getTrains():
                 a = json.loads(r.text)
 
                 for i in a[0][:-1]:
-                    p = train.Train(i, utils.calcCKV(a[0][-1][5], len(a[0])-1))
+                    p = train.Train(i,
+                                    utils.calcCKV(a[0][-1][5], len(a[0])-1),
+                                    strTime)
                     trains[p.id] = p
                 else:
                     break
