@@ -2,7 +2,7 @@ import json
 from trainspotter import utils
 
 class Train:
-    def __init__(self,train,ckv, time):
+    def __init__(self, train, ckv, time):
         self.time = time
         self.name = train[0]
         self.x = utils.sign(train[1],ckv)
