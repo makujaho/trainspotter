@@ -32,3 +32,13 @@ class Train:
 
     def __str__(self):
         return json.dumps(self.__dict__)
+
+    def loadJSON(self,traindata):
+        self.__dict__ = json.loads(traindata)
+
+    def get(self,var):
+        return self.__dict__[var] if var in self.__dict__ else None
+
+    def set(self,var,value):
+        self.__dict__[var] = value
+        
