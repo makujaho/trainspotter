@@ -2,6 +2,7 @@ import sys
 from mpl_toolkits.basemap import Basemap, cm
 from numpy import array
 import matplotlib.pyplot as plt
+import matplotlib.colors as cl
 import numpy as np
 import json
 
@@ -52,12 +53,15 @@ x = np.compress(np.logical_or(x1 < 1.e20,y1 < 1.e20), x1)
 y = np.compress(np.logical_or(x1 < 1.e20,y1 < 1.e20), y1)
 
 # plot that data as heat map
-map.hexbin(x, y, C=data, gridsize=50,cmap=plt.cm.jet, alpha=0.25)
+map.hexbin(x, y, C=data, gridsize=50, cmap=plt.cm.jet, alpha=0.25,
+           norm=cl.LogNorm())
 
 # plot that data as scatter map
-cs = map.scatter(xo, yo, c=data, s=sizes, linewidth=0.3, latlon=True)
-cbar = map.colorbar(cs,location='bottom',pad="5%")
-cbar.set_label('min delay')
+cs = map.scatter(xo, yo, c=data, s=sizes, cmap=plt.cm.jet, linewidth=0.3, 
+                 latlon=True, norm=cl.LogNorm())
+cbar = map.colorbar(cs,location='bottom',pad="5%",
+                    ticks=[1,5,10,30,60,120], format='%.0f')
+cbar.set_label('minutes delay')
 
 # Set the title to the file name
 plt.title(sys.argv[1].split('/')[-1])
