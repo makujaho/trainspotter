@@ -16,5 +16,5 @@ class ElasticSearch:
                           body=data)
         return r
 
-    def get_count(self, doc_type=None)
+    def get_count(self, doc_type=None):
         return self.es.count(index=self.index, doc_type=self.doc_type)
