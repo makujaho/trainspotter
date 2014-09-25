@@ -1,4 +1,5 @@
 from elasticsearch import Elasticsearch
+import json
 
 class ElasticSearch:
     def __init__(self, host, port, index, doc_type):
