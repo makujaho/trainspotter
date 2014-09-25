@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch
 
 class ElasticSearch:
-    def __init__(self, host, port, index, doc_type)
+    def __init__(self, host, port, index, doc_type):
         self.host = host
         self.port = port
         self.index = index
