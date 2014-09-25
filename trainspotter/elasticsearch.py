@@ -4,7 +4,7 @@ class ElasticSearch:
     def __init__(self, host, port, index, doc_type):
         self.host       = host
         self.port       = port
-        self.index      = index
+        self.index_name = index
         self.doc_type   = doc_type
 
         self.es = Elasticsearch()
@@ -12,8 +12,8 @@ class ElasticSearch:
     def index(self, data):
         es_id = "%s-%s-%s-%s-%s" % (data['dateRef'], data['time'], data['x'],
                                     data['y'], data['id'])
-        r = self.es.index(index=self.index, doc_type=self.doc_type, id=es_id,
-                          body=data)
+        r = self.es.index(index=self.index_name, doc_type=self.doc_type,
+                          id=es_id, body=data)
         return r
 
     def index_file(self, path):
@@ -23,4 +23,5 @@ class ElasticSearch:
                 self.index(n)
 
     def get_count(self, doc_type=None, search=None):
-        return self.es.count(index=self.index, doc_type=doc_type, body=search)
+        return self.es.count(index=self.index_name, doc_type=doc_type,
+                             body=search)
