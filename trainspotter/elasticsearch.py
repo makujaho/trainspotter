@@ -16,5 +16,11 @@ class ElasticSearch:
                           body=data)
         return r
 
-    def get_count(self, doc_type=None):
-        return self.es.count(index=self.index, doc_type=self.doc_type)
+    def index_file(self, path):
+        with open(path) as f:
+            for line in f:
+                n = json.loads(line)
+                self.index(n)
+
+    def get_count(self, doc_type=None, search=None):
+        return self.es.count(index=self.index, doc_type=doc_type, body=search)
