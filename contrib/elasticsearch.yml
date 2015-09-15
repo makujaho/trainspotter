@@ -1,0 +1,73 @@
+cluster.name: trainspotter
+
+node.name: "trainspotter-example"
+node.master: true
+node.data: true
+
+node.rack: contabo
+node.max_local_storage_nodes: 1
+
+index.number_of_shards: 2
+index.number_of_replicas: 1
+
+path.data: /data/elasticsearch
+path.work: /data/elasticsearch-tmp
+path.logs: /data/elasticsearch-logs
+path.plugins: /data/elasticsearch-plugins
+
+# Make sure that the ES_MIN_MEM and ES_MAX_MEM environment variables are set
+# to the same value, and that the machine has enough memory to allocate
+# for Elasticsearch, leaving enough memory for the operating system itself.
+#
+# You should also make sure that the Elasticsearch process is allowed to lock
+# the memory, eg. by using `ulimit -l unlimited`.
+bootstrap.mlockall: true
+
+network.bind_host: 192.168.255.3
+network.publish_host: 192.168.255.3
+http.port: 9200
+transport.tcp.port: 9300
+transport.tcp.compress: true
+#http.max_content_length: 100mb
+
+#gateway.type: local
+#gateway.recover_after_nodes: 1
+#gateway.recover_after_time: 5m
+#gateway.expected_nodes: 2
+
+cluster.routing.allocation.node_initial_primaries_recoveries: 12
+cluster.routing.allocation.node_concurrent_recoveries: 5
+indices.recovery.max_bytes_per_sec: 50mb
+indices.recovery.concurrent_streams: 10
+
+discovery.zen.minimum_master_nodes: 1
+#discovery.zen.ping.timeout: 3s
+
+discovery.zen.ping.multicast.enabled: true
+discovery.zen.ping.unicast.hosts: ["trainspotter-1", "trainspotter-2"]
+
+index.merge.scheduler.max_thread_count: 1
+index.refresh_interval: 5m
+
+index.search.slowlog.threshold.query.warn: 10s
+index.search.slowlog.threshold.query.info: 5s
+index.search.slowlog.threshold.query.debug: 2s
+index.search.slowlog.threshold.query.trace: 500ms
+
+index.search.slowlog.threshold.fetch.warn: 1s
+index.search.slowlog.threshold.fetch.info: 800ms
+index.search.slowlog.threshold.fetch.debug: 500ms
+index.search.slowlog.threshold.fetch.trace: 200ms
+
+index.indexing.slowlog.threshold.index.warn: 10s
+index.indexing.slowlog.threshold.index.info: 5s
+index.indexing.slowlog.threshold.index.debug: 2s
+index.indexing.slowlog.threshold.index.trace: 500ms
+
+monitor.jvm.gc.young.warn: 1000ms
+monitor.jvm.gc.young.info: 700ms
+monitor.jvm.gc.young.debug: 400ms
+
+monitor.jvm.gc.old.warn: 10s
+monitor.jvm.gc.old.info: 5s
+monitor.jvm.gc.old.debug: 2s
